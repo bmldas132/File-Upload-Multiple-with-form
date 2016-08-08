@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Deal</title>
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <!--CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/html/admin-template/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Script  -->
+
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <!--Angular js-->
+    <script src="/Scripts/angular.js"></script>
+    <script src="fileupload.js"></script>
+
+   
+    <!-- Deal Script-->
+    <script src="deal-add.js"></script>
+    
+</head>
+<body ng-app="AddDealApp" ng-controller="AddDealController" ng-cloak>
+
+    <section id="container">
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <label>Images</label>
+                                </div>
+                                <div class="panel-body">
+                                    <div style="position:relative;">
+
+                                        <div class="row">
+                                            <div class="col-lg-6" ng-repeat="image in imagesrc">
+                                                <div class="thumbnail">
+                                                    <img style="min-height:100px;" src="{{image.Src}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="position:absolute;bottom:0;display:block;width:100%; color:#fff;background-color:#333;">
+                                            <input id="file" ng-hide="true" type="file" accept="images/*" class="form-control" multiple ng-files="getTheFiles($files)" />
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-center" style="background-color:#337ab7;cursor:pointer;color:#fff;" onclick="document.getElementById('file').click();">
+                                    <span class="h4">Add Images</span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <label>Basic Information</label>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label style="font-size:13px;">Name</label>
+                                                <input type="text" ng-model="DealDetail.Name" class="form-control" placeholder="Enter Deal Name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label style="font-size:13px;">Description</label>
+                                                <textarea rows="4" ng-model="DealDetail.Description" class="form-control" placeholder="Enter description here..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-lg-offset-9">
+                                            <div class="form-group" style="padding-top:10px;">
+                                                <a ng-click="Submit()" class="btn btn-primary btn-block" style="padding:10px;border:none;border-radius:0;font-size:16px;">Add Deal</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+
+                    </div>
+                </form>
+                
+            </section>
+        </section>
+
+    </section>
+
+</body>
+
+</html>
+
+
+
